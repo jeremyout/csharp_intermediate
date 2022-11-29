@@ -1,0 +1,11 @@
+Class
+- Building block of an application.
+- Applications consist of multiple classes each responsible for particular behavior.
+- Real world example (Blog site)
+	- Three layers: Presentation (PostView), Business Logic/Domain (Post), and Data Access/Persistence (PostRepository)
+- Anatomy of a class
+	- Data (fields)
+	- Behavior (methods)
+
+Object
+- Instance of a class that resides in memory.
