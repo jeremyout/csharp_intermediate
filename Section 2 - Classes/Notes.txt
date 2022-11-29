@@ -19,3 +19,15 @@ Constructors
 
 Constructor Overloading
 - Having a method by the same name but different signatures (Return type, name, and type of inputs)
+
+Object Initializers
+- Another way to initialize an object.
+- Syntax for quickly initializing an object without the need to call one of its constructors.
+- Why?
+	- To avoid creating multiple constructors.
+- Example of Object initialization syntax:
+	- var person = new Person
+					{
+						FirstName = "Mosh",
+						LastName = "Hamedani"
+					};
