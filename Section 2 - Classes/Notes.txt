@@ -9,3 +9,13 @@ Class
 
 Object
 - Instance of a class that resides in memory.
+
+Constructors
+- Method that is called when an instance of a class is created.
+- Why?
+	- Put an object in an early state(initialize fields).
+- Has the exact same name as the class.
+- No return type.
+
+Constructor Overloading
+- Having a method by the same name but different signatures (Return type, name, and type of inputs)
