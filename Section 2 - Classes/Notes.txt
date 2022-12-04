@@ -163,23 +163,23 @@ Properties
 
 	// from last lecture:
 	public class Person
-    {
-        private DateTime _birthdate;
-        
+	{
+		private DateTime _birthdate;
+		
 		public void SetBirthdate(DateTime birthdate)
-        {
-            _birthdate = birthdate;
-        }
+		{
+			_birthdate = birthdate;
+		}
 
-        public DateTime GetBirthdate()
-        {
-            return _birthdate;
-        }
-    }
+		public DateTime GetBirthdate()
+		{
+			return _birthdate;
+		}
+	}
 
 - How?
 	public class Person
-    {
+	{
 		private DateTime _birthdate;
 
 		public DateTime Birthdate // Pascal-case for properties too
@@ -190,6 +190,6 @@ Properties
 	}
 - Auto-implemented properties
 	public class Person
-    {
+	{
 		public DateTime Birthdate { get; set; } // C# compiler sees this and adds a private field for us, we don't need to add one.
 	}
