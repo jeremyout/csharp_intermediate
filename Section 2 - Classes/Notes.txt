@@ -31,3 +31,64 @@ Object Initializers
 						FirstName = "Mosh",
 						LastName = "Hamedani"
 					};
+
+Methods
+- Signatures
+	- Consist of name and the number/type of parameters
+- Overloading
+	- Having a method with the same name but different signatures
+- Methods with varying numbers of parameters
+	- Add method for instance. Use an array instead of individually spelling out all of the parameters.
+		public class Calculator
+		{
+			public int Add(params int[] numbers){}
+		}
+		var result = calculator.Add(new int[]{1, 2, 3, 4});
+	- Can also use the params modifier.
+		public class Calculator
+		{
+			public int Add(params int[] numbers){}
+		}
+		// Can then do either way:
+		var result = calculator.Add(new int[]{1, 2, 3, 4});
+		var result = calculator.Add(1, 2, 3, 4);
+		// Easier for the consumer of the method to call it.
+- Ref modifier
+	// a would be equal to 1 in this case:
+	public class MyClass
+	{
+		public void MyMethod(int a)
+		{
+			a += 2;
+		}
+	}
+	var a = 1;
+	myClass.MyMethod(a);
+
+	// Can change the above code to include a ref modifier to the method
+	// a would be equal to 3 in this case:
+	public class Weirdo
+	{
+		public void DoAWeirdThing(ref int a)
+		{
+			a += 2;
+		}
+	}
+	var a = 1;
+	weirdo.DoAWeirdThing(ref a);
+	// Don't do this! ^
+- Out modifier
+	- Slightly similar to the ref modifier in the sense that if a parameter is declared with the out modifier,
+	  in order to call that method, you also need to specify out when calling that method.
+	- Can return a value to the caller.
+
+	public class MyClass
+	{
+		public void MyMethod(out int result)
+		{
+			result = 1;
+		}
+	}
+	int a = 1;
+	myClass.MyMethod(out a);
+	// Again... don't use this.
