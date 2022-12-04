@@ -193,3 +193,32 @@ Properties
 	{
 		public DateTime Birthdate { get; set; } // C# compiler sees this and adds a private field for us, we don't need to add one.
 	}
+
+Indexers
+- What?
+	- A way to access elements in a class that represents a list of values.
+	- Examples:
+		var array = new int[5];
+		array[0] = 1;
+
+		var list = new List<int>();
+		list[0] = 1;
+
+		var cookie = new HttpCookie();
+		cookie.Expire = DateTime.Today.AddDays(5);
+
+		cookie["name"] = "Mosh";
+		cookie.SetItem("name", "Mosh");
+
+		var name = cookie["name"];
+		var name = cookie.GetItem("name");
+
+- How?
+	public class HttpCookie
+	{
+		public string this[string key]
+		{
+			get { ... }
+			set { ... }
+		}
+	}
