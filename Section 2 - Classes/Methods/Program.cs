@@ -10,9 +10,9 @@ namespace Methods
             //{
             //    var num = int.Parse("abc");
             //}
-            //catch(Exception) 
-            //{ 
-            //    Console.WriteLine("Conversion failed."); 
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Conversion failed.");
             //}
 
             int number;

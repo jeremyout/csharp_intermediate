@@ -92,3 +92,14 @@ Methods
 	int a = 1;
 	myClass.MyMethod(out a);
 	// Again... don't use this.
+
+
+Fields
+- A variable declared at the class level, used to store data about the class
+- Initialization
+	- Some developers believe that we should only use constructors to initialize fields based on values passed from outside the class.
+	- Can directly initialize without the need for a constructor.
+- Read-only
+	- Makes it so that field can only be assigned once.
+	- Why?
+		- Safety/robustness
