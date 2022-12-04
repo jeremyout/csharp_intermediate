@@ -15,13 +15,15 @@ namespace Methods
             //    Console.WriteLine("Conversion failed.");
             //}
 
-            int number;
-            // The TryParse method basically performs the same as the code above
-            var result = int.TryParse("abc", out number);
-            if (result)
-                Console.WriteLine(number);
-            else
-                Console.WriteLine("Conversion failed.");
+            //int number;
+            //// The TryParse method basically performs the same as the code above
+            //var result = int.TryParse("abc", out number);
+            //if (result)
+            //    Console.WriteLine(number);
+            //else
+            //    Console.WriteLine("Conversion failed.");
+
+            UsePoints();
         }
 
         static void UseParams()
