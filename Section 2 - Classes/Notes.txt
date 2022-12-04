@@ -103,3 +103,54 @@ Fields
 	- Makes it so that field can only be assigned once.
 	- Why?
 		- Safety/robustness
+
+Access Modifiers
+- Public
+- Private
+- Protected
+- Internal
+- Protected Internal
+
+- What is an access modifier?
+	- A way to control a class and/or its members.
+- Why?
+	- To create safety in our programs.
+- How?
+	public class Customer
+	{
+		private string Name;
+	}
+
+	...
+	var john = new Customer();
+	john.Name; // won't compile
+
+- Object-oriented programming
+	- Encapsulation/Information Hiding
+	- Inheritance
+	- Polymorphism
+
+	- Encapsulation
+		- Each class is responsible for one thing.
+		- We want our classes to hide information about how they do the things they are responsible for, they don't need to know about the details.
+		- Hide the details to the outside.
+		- Define fields as private
+		- Provide getter/setter methods as public
+
+		// Class names and its methods should use Pascal-case
+		public class Person
+		{
+			// private fields should start with an underline and follow camel-case
+			private string _name;
+
+			public void SetName(string name)
+			{
+				if (!String.IsNullOrEmpty(name))
+					this._name = name;
+			}
+
+			public string GetName()
+			{
+				return _name;
+			}
+		}
