@@ -154,3 +154,42 @@ Access Modifiers
 				return _name;
 			}
 		}
+
+Properties
+- What?
+	- A class member that encapsulates a getter/setter for accessing a field.
+- Why?
+	- To create a getter/setter with less code.
+
+	// from last lecture:
+	public class Person
+    {
+        private DateTime _birthdate;
+        
+		public void SetBirthdate(DateTime birthdate)
+        {
+            _birthdate = birthdate;
+        }
+
+        public DateTime GetBirthdate()
+        {
+            return _birthdate;
+        }
+    }
+
+- How?
+	public class Person
+    {
+		private DateTime _birthdate;
+
+		public DateTime Birthdate // Pascal-case for properties too
+		{
+			get { return _birthdate; }
+			set { _birthdate = value; }
+		}
+	}
+- Auto-implemented properties
+	public class Person
+    {
+		public DateTime Birthdate { get; set; } // C# compiler sees this and adds a private field for us, we don't need to add one.
+	}
