@@ -24,3 +24,25 @@ Inheritance
 	{
 		// Code specific to Text
 	}
+
+Composition
+- What is composition?
+	- A kind of relationship between two classes that allows one to contain the other.
+	- Has-A relationship
+	- Example: Cas has an Engine
+- Benefits
+	- Code reuse
+	- Flexibility
+	- A means to loosely couple applications
+- Syntax
+	public class Installer
+	{
+		private Logger _logger;
+		public Installer(Logger logger)
+		{
+			_logger = logger;
+		}
+	}
+
+- Generally speaking inheritance results in a more tightly coupled relationship.
+- With composition, you can get loose coupling and more flexibility.
