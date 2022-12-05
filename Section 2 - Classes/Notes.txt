@@ -1,0 +1,224 @@
+Class
+- Building block of an application.
+- Applications consist of multiple classes each responsible for particular behavior.
+- Real world example (Blog site)
+	- Three layers: Presentation (PostView), Business Logic/Domain (Post), and Data Access/Persistence (PostRepository)
+- Anatomy of a class
+	- Data (fields)
+	- Behavior (methods)
+
+Object
+- Instance of a class that resides in memory.
+
+Constructors
+- Method that is called when an instance of a class is created.
+- Why?
+	- Put an object in an early state(initialize fields).
+- Has the exact same name as the class.
+- No return type.
+
+Constructor Overloading
+- Having a method by the same name but different signatures (Return type, name, and type of inputs)
+
+Object Initializers
+- Another way to initialize an object.
+- Syntax for quickly initializing an object without the need to call one of its constructors.
+- Why?
+	- To avoid creating multiple constructors.
+- Example of Object initialization syntax:
+	- var person = new Person
+					{
+						FirstName = "Mosh",
+						LastName = "Hamedani"
+					};
+
+Methods
+- Signatures
+	- Consist of name and the number/type of parameters
+- Overloading
+	- Having a method with the same name but different signatures
+- Methods with varying numbers of parameters
+	- Add method for instance. Use an array instead of individually spelling out all of the parameters.
+		public class Calculator
+		{
+			public int Add(params int[] numbers){}
+		}
+		var result = calculator.Add(new int[]{1, 2, 3, 4});
+	- Can also use the params modifier.
+		public class Calculator
+		{
+			public int Add(params int[] numbers){}
+		}
+		// Can then do either way:
+		var result = calculator.Add(new int[]{1, 2, 3, 4});
+		var result = calculator.Add(1, 2, 3, 4);
+		// Easier for the consumer of the method to call it.
+- Ref modifier
+	// a would be equal to 1 in this case:
+	public class MyClass
+	{
+		public void MyMethod(int a)
+		{
+			a += 2;
+		}
+	}
+	var a = 1;
+	myClass.MyMethod(a);
+
+	// Can change the above code to include a ref modifier to the method
+	// a would be equal to 3 in this case:
+	public class Weirdo
+	{
+		public void DoAWeirdThing(ref int a)
+		{
+			a += 2;
+		}
+	}
+	var a = 1;
+	weirdo.DoAWeirdThing(ref a);
+	// Don't do this! ^
+- Out modifier
+	- Slightly similar to the ref modifier in the sense that if a parameter is declared with the out modifier,
+	  in order to call that method, you also need to specify out when calling that method.
+	- Can return a value to the caller.
+
+	public class MyClass
+	{
+		public void MyMethod(out int result)
+		{
+			result = 1;
+		}
+	}
+	int a = 1;
+	myClass.MyMethod(out a);
+	// Again... don't use this.
+
+
+Fields
+- A variable declared at the class level, used to store data about the class
+- Initialization
+	- Some developers believe that we should only use constructors to initialize fields based on values passed from outside the class.
+	- Can directly initialize without the need for a constructor.
+- Read-only
+	- Makes it so that field can only be assigned once.
+	- Why?
+		- Safety/robustness
+
+Access Modifiers
+- Public
+- Private
+- Protected
+- Internal
+- Protected Internal
+
+- What is an access modifier?
+	- A way to control a class and/or its members.
+- Why?
+	- To create safety in our programs.
+- How?
+	public class Customer
+	{
+		private string Name;
+	}
+
+	...
+	var john = new Customer();
+	john.Name; // won't compile
+
+- Object-oriented programming
+	- Encapsulation/Information Hiding
+	- Inheritance
+	- Polymorphism
+
+	- Encapsulation
+		- Each class is responsible for one thing.
+		- We want our classes to hide information about how they do the things they are responsible for, they don't need to know about the details.
+		- Hide the details to the outside.
+		- Define fields as private
+		- Provide getter/setter methods as public
+
+		// Class names and its methods should use Pascal-case
+		public class Person
+		{
+			// private fields should start with an underline and follow camel-case
+			private string _name;
+
+			public void SetName(string name)
+			{
+				if (!String.IsNullOrEmpty(name))
+					this._name = name;
+			}
+
+			public string GetName()
+			{
+				return _name;
+			}
+		}
+
+Properties
+- What?
+	- A class member that encapsulates a getter/setter for accessing a field.
+- Why?
+	- To create a getter/setter with less code.
+
+	// from last lecture:
+	public class Person
+	{
+		private DateTime _birthdate;
+		
+		public void SetBirthdate(DateTime birthdate)
+		{
+			_birthdate = birthdate;
+		}
+
+		public DateTime GetBirthdate()
+		{
+			return _birthdate;
+		}
+	}
+
+- How?
+	public class Person
+	{
+		private DateTime _birthdate;
+
+		public DateTime Birthdate // Pascal-case for properties too
+		{
+			get { return _birthdate; }
+			set { _birthdate = value; }
+		}
+	}
+- Auto-implemented properties
+	public class Person
+	{
+		public DateTime Birthdate { get; set; } // C# compiler sees this and adds a private field for us, we don't need to add one.
+	}
+
+Indexers
+- What?
+	- A way to access elements in a class that represents a list of values.
+	- Examples:
+		var array = new int[5];
+		array[0] = 1;
+
+		var list = new List<int>();
+		list[0] = 1;
+
+		var cookie = new HttpCookie();
+		cookie.Expire = DateTime.Today.AddDays(5);
+
+		cookie["name"] = "Mosh";
+		cookie.SetItem("name", "Mosh");
+
+		var name = cookie["name"];
+		var name = cookie.GetItem("name");
+
+- How?
+	public class HttpCookie
+	{
+		public string this[string key]
+		{
+			get { ... }
+			set { ... }
+		}
+	}
