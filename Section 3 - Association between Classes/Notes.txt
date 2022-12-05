@@ -46,3 +46,29 @@ Composition
 
 - Generally speaking inheritance results in a more tightly coupled relationship.
 - With composition, you can get loose coupling and more flexibility.
+
+Favor Composition over Inheritance
+- Problems with Inheritance
+	- Easily abused by amateur designers/developers
+	- Large hierarchies
+	- Fragility
+	- Tight coupling
+- Composition
+	- Any Inheritance problem can be translated into Composition
+- Benefits of Composition
+	- Great flexibility
+	- Eventually loose coupling
+
+Summary
+- Two types of relationships between classes
+	- Inheritance (Is-a)
+	- Composition (Has-a)
+- Inheritance
+	- Pros: Code reuse, easier to understand
+	- Cons: Tightly coupled, fragile, can be abused
+- Composition
+	- Pros: Code reuse, great flexibility, loose coupling
+	- Cons: A little harder to understand
+- Inheritance is not necessarily a bad thing.
+- Use both Inheritance and Composition.
+- Just because in the real world we think of a lot of relationships as Inheritance or Is-a relationship, doesn;t mean we need to model them the same way in software.
