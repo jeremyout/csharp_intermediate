@@ -1,0 +1,26 @@
+Class Coupling
+- What is coupling?
+	- A measure of how interconnected classes and subsystems are.
+- Types of relationships
+	- Inheritance
+	- Composition
+	- Favor composition over inheritance
+
+Inheritance
+- What is inheritance?
+	- A kind of relationship between two classes that allows one to inherit code from another.
+	- Is-A relationship.
+	- Example: A Car is a Vehicle.
+- Benefits
+	- Code reuse
+	- Polymorphic behavior
+- Syntax
+	public class PresentationObject
+	{
+		// Common shared code
+	}
+
+	public class Text : PresentationObject
+	{
+		// Code specific to Text
+	}
