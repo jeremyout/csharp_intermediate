@@ -1,0 +1,14 @@
+Access Modifiers
+- public, private, protected, internal, protected internal
+- Public
+	- Accessible from everywhere.
+- Private
+	- Accessible only from the class it is implemented in.
+- Protected
+	- Accessible only from the class and its derived classes.
+	- Breaks encapsulation. Avoid if you can.
+- Internal
+	- Accessible only from the same assembly.
+- Protected Internal
+	- Accessible only from the same assembly or any derived class.
+	- Unlikely that we would ever need this
