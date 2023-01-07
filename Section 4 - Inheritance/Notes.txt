@@ -12,3 +12,36 @@ Access Modifiers
 - Protected Internal
 	- Accessible only from the same assembly or any derived class.
 	- Unlikely that we would ever need this
+
+Constructors and Inheritance
+- Base class constructors are always executed first.
+- Base class constructors are not inherited.
+- Example:
+	public class Vehicle
+	{
+		private string _registrationNumber;
+
+		public Vehicle(string registrationNumber)
+		{
+			_registrationNumber = registrationNumber;
+		}
+	}
+
+	public class Car : Vehicle
+	{
+		public Car(string registrationNumber)
+		{
+			// Cannot set the registration number in the base class from here
+			_registrationNumber = registrationNumber; // this is not valid
+		}
+	}
+
+	- Instead, use the base keyword:
+	public class Car : Vehicle
+	{
+		public Car(string registrationNumber)
+			: base(registrationNumber)
+		{
+			// Initialize fields specific to the car class here
+		}
+	}
