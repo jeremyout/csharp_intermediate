@@ -45,3 +45,46 @@ Constructors and Inheritance
 			// Initialize fields specific to the car class here
 		}
 	}
+
+Updcasting and Downcasting
+- Conversion from a derived class to a base class (upcasting)
+- Conversion from a base calss tro a derived class (Downcasting)
+- The 'as' and 'is' keywords
+	
+	public class Shape
+	{
+	}
+
+	public class Circle : Shape
+	{
+	}
+
+	Upcasting:
+	Circle circle = new Circle();
+	Shape shape = circle;
+
+	Downcasting:
+	Circle anotherCircle = (Circle)shape;
+
+	Car car = (Car)shape; // throws InvalidCastException
+
+	The as keyword:
+	Car car = (Car) obj; // Explicit cast, may get exception
+
+	Car car = obj as Car;  // No exception, but may be null
+	if (car != null)
+	{
+	}
+
+	The is keyword:
+	if (obj is Car) // check the type of an object
+	{
+		Car car = (Car) obj;
+	}
+	
+	Takeaways:
+	In C#, upcasting is implicit so yo ucan convert an object reference to its base class reference. 
+	In practical terms, wherever a method requires an object of a given type we can pass an object of that type or any types that derives from that type.
+
+	In situations like handling a click of a button or anywhere where you get an argument and that argument has a limited view to that object, you can use 
+	downcasting to convert that object to a more specific type. To do that you can use an explicit cast or the as keyword.
