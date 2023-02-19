@@ -1,0 +1,90 @@
+Access Modifiers
+- public, private, protected, internal, protected internal
+- Public
+	- Accessible from everywhere.
+- Private
+	- Accessible only from the class it is implemented in.
+- Protected
+	- Accessible only from the class and its derived classes.
+	- Breaks encapsulation. Avoid if you can.
+- Internal
+	- Accessible only from the same assembly.
+- Protected Internal
+	- Accessible only from the same assembly or any derived class.
+	- Unlikely that we would ever need this
+
+Constructors and Inheritance
+- Base class constructors are always executed first.
+- Base class constructors are not inherited.
+- Example:
+	public class Vehicle
+	{
+		private string _registrationNumber;
+
+		public Vehicle(string registrationNumber)
+		{
+			_registrationNumber = registrationNumber;
+		}
+	}
+
+	public class Car : Vehicle
+	{
+		public Car(string registrationNumber)
+		{
+			// Cannot set the registration number in the base class from here
+			_registrationNumber = registrationNumber; // this is not valid
+		}
+	}
+
+	- Instead, use the base keyword:
+	public class Car : Vehicle
+	{
+		public Car(string registrationNumber)
+			: base(registrationNumber)
+		{
+			// Initialize fields specific to the car class here
+		}
+	}
+
+Updcasting and Downcasting
+- Conversion from a derived class to a base class (upcasting)
+- Conversion from a base calss tro a derived class (Downcasting)
+- The 'as' and 'is' keywords
+	
+	public class Shape
+	{
+	}
+
+	public class Circle : Shape
+	{
+	}
+
+	Upcasting:
+	Circle circle = new Circle();
+	Shape shape = circle;
+
+	Downcasting:
+	Circle anotherCircle = (Circle)shape;
+
+	Car car = (Car)shape; // throws InvalidCastException
+
+	The as keyword:
+	Car car = (Car) obj; // Explicit cast, may get exception
+
+	Car car = obj as Car;  // No exception, but may be null
+	if (car != null)
+	{
+	}
+
+	The is keyword:
+	if (obj is Car) // check the type of an object
+	{
+		Car car = (Car) obj;
+	}
+	
+	Takeaways:
+	In C#, upcasting is implicit so yo ucan convert an object reference to its base class reference. 
+	In practical terms, wherever a method requires an object of a given type we can pass an object of that type or any types that derives from that type.
+
+	In situations like handling a click of a button or anywhere where you get an argument and that argument has a limited view to that object, you can use 
+	downcasting to convert that object to a more specific type. To do that you can use an explicit cast or the as keyword.
