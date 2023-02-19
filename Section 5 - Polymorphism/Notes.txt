@@ -1,2 +1,44 @@
 Method Overriding
 	- Modifying the implementation of an inherited method.
+
+Abstract Modifier
+	- Indicates that a class or member is missing implementation.
+	- Example:
+		Previously we had the following:
+			public class Shape
+			{
+				public virtual void Draw()
+				{
+				}
+			}
+
+			Public class Circle : Shape
+			{
+				public override void Draw()
+				{
+					Console.WrtieLine("Drawing a circle");
+				}
+			}
+		Now with abstract, we can change it to the following:
+			public abstract class Shape
+			{
+				public abstract void Draw();
+			}
+
+			Public class Circle : Shape
+			{
+				public override void Draw()
+				{
+					//Implementation for the Circle
+				}
+			}
+	- Abstract methods are inherently virtual and can provide polymorphic behavior.
+
+	- Rules:
+		- Abstract members do not include implementation
+		- If a member is declared as abstract, the containing class needs to be declared as abstract too.
+		- In a derived class, you must implement all abstract members in the base abstract class.
+		- Abstract classes cannot be instantiated (var shape = new Shape(); // Won't compile)
+
+	- Why use abstract?
+		- When you want to provide some common behavior, while forcing other developers to follow your design.
