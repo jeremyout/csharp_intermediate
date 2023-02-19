@@ -88,3 +88,48 @@ Updcasting and Downcasting
 
 	In situations like handling a click of a button or anywhere where you get an argument and that argument has a limited view to that object, you can use 
 	downcasting to convert that object to a more specific type. To do that you can use an explicit cast or the as keyword.
+
+Boxing/Unboxing
+- Value and Reference Types
+- Boxing and Unboxing
+
+- Types in C#
+	- Value types
+		- stored on the stack (limited amount of space in memory is allocated to each thread of your program)
+			- Have a short lifetime, when out of scope, they are removed from the stack
+		- Examples:
+			- All primitive types: byte, int, float, char, bool
+			- The struct type
+	- Reference types
+		- stored in the heap (larger amount of memory)
+			- Store objects that require a longer lifetime
+		- Examples:
+			- Any classes (Object, Array, String, DbMigrator, etc.)
+
+
+- Earlier in this section..
+	- An object reference can be implicitly converted to a base class reference
+		Circle circle = new Circle();
+		Shape shape = circle;
+	- Object class is the base of all classes in the .NET framework
+		Circle circle = new Circle();
+		Shape shape = circle;
+		object shape = circle;
+
+- Boxing
+	- The process of converting a value type instance to an object reference
+	- Example:
+		int number = 10;
+		object obj = number;
+		// or
+		object obj = 10;
+		// ^^ what happens at runtime is that the value 10 gets "boxed" by the CLR and stored in the heap instead of the stack, then creates a reference on the stack.
+
+- Unboxing
+	- Example: 
+		object obj = 10; // boxing already happened here
+		int number = (int)obj; // new variable on the stack called number with a value of 10
+
+- Boxing/Unboxing
+	- Have a performance penalty.
+	- Avoid if possible.
